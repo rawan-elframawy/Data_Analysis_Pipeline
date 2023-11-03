@@ -63,6 +63,7 @@ def transform_data():
 
     return df_encoded
 
+
 def discretize_data():
     # Do only two
     # binning / histogram analysis / clustering analysis / decision tree analysis
