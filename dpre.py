@@ -9,8 +9,8 @@ import sys # Get dataset path argument from invoker file
 def preprocess_and_save():
     clean_data()
     reduce_data()
-    transform_data()
-    encoded_df = discretize_data()
+    encoded_df = transform_data()
+    discretize_data()
 
     save(encoded_df)
 
@@ -61,6 +61,7 @@ def transform_data():
     df_encoded = pd.get_dummies(df, columns=["Education", "Marital_Status"])
     # need another task
 
+    return df_encoded
 
 def discretize_data():
     # Do only two
