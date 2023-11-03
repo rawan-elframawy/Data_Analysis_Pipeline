@@ -76,7 +76,7 @@ def save(encoded_df):
 
 # Import dataset & perform pre-processing
 df = pd.read_csv(sys.argv[1], sep='\t')
-preprocess_and_save(df)
+preprocess_and_save()
 
 # Invoke the next file
 subprocess.run(['python', 'eda.py', sys.argv[1]])
