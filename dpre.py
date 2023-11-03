@@ -2,6 +2,7 @@ import numpy as np   # Import NumPy for numerical operations
 import pandas as pd  # Import Pandas for data manipulation and analysis
 import seaborn as sns # Creating visually appealing statistical plots.
 import matplotlib.pyplot as plt  # Import Matplotlib for data visualization
+import subprocess # To invoke the next file
 import sys # Get dataset path argument from invoker file
 
 
@@ -76,3 +77,6 @@ def save(encoded_df):
 # Import dataset & perform pre-processing
 df = pd.read_csv(sys.argv[1], sep='\t')
 preprocess_and_save(df)
+
+# Invoke the next file
+subprocess.run(['python', 'eda.py', sys.argv[1]])
