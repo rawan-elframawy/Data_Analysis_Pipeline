@@ -65,7 +65,6 @@ def transform_data():
     # Apply Min-Max scaling to the selected columns
     columns_to_scale = df_encoded.columns.tolist()
     df_encoded[columns_to_scale] = scaler.fit_transform(df_encoded[columns_to_scale])
-
     return df_encoded
 
 
