@@ -2,6 +2,7 @@ import numpy as np   # Import NumPy for numerical operations
 import pandas as pd  # Import Pandas for data manipulation and analysis
 import seaborn as sns # Creating visually appealing statistical plots.
 import matplotlib.pyplot as plt  # Import Matplotlib for data visualization
+from sklearn.preprocessing import MinMaxScaler # Scaling dataet
 import subprocess # To invoke the next file
 import sys # Get dataset path argument from invoker file
 
@@ -59,7 +60,6 @@ def reduce_data():
 def transform_data():
     # One-hot encoding
     df_encoded = pd.get_dummies(df, columns=["Education", "Marital_Status"])
-
     # note that you can still deal with the non-one hot encoded dataframe using df which i used globally throughout the whole code
     scaler = MinMaxScaler(feature_range=(0, 1))
     # Apply Min-Max scaling to the selected columns
