@@ -59,9 +59,12 @@ def reduce_data():
 def transform_data():
     # One-hot encoding
     df_encoded = pd.get_dummies(df, columns=["Education", "Marital_Status"])
-    # need another task
-    # note that you can still deal with the non-one hot encoded dataframe using df which i used globally throughout the whole code
 
+    # note that you can still deal with the non-one hot encoded dataframe using df which i used globally throughout the whole code
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    # Apply Min-Max scaling to the selected columns
+    columns_to_scale = df_encoded.columns.tolist()
+    df_encoded[columns_to_scale] = scaler.fit_transform(df_encoded[columns_to_scale])
     return df_encoded
 
 
