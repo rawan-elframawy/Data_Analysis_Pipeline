@@ -11,8 +11,9 @@ def preprocess_and_save():
     clean_data()
     reduce_data()
     df_encoded , df_scaled = transform_data()
-    discretize_data()
+    discretize_data(df_encoded)
     save(df_encoded)
+    return df_encoded , df_scaled
 #==========================================================================
 def clean_data():
     # 1. Remove null values
@@ -58,7 +59,7 @@ def transform_data():
     df_scaled[columns_to_scale] = scaler.fit_transform(df_scaled[columns_to_scale])
     return df_encoded , df_scaled
 #==========================================================================
-def discretize_data():
+def discretize_data(df_encoded):
     # Do only two
     # binning / histogram analysis / clustering analysis / decision tree analysis
     # 1. Binning
@@ -87,7 +88,7 @@ def save(df_encoded):
 #==========================================================================
 # Import dataset & perform pre-processing
 df = pd.read_csv(sys.argv[1], sep='\t')
-preprocess_and_save()
+df_encoded , df_scaled = preprocess_and_save()
 #==========================================================================
 # Invoke the next file
 subprocess.run(['python', 'eda.py', sys.argv[1]])
