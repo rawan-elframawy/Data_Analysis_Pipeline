@@ -3,6 +3,8 @@
 This is an exercise to practice the real-world data science operational flow.
 
 # Files description
+`Dockerfile` Specifying the base image as Ubuntu and installs Python3 with the required packages. It then creates a directory inside the container at /home/doc-bd-a1/ and copies the dataset into it and opens the bash shell upon startup.
+
 `load.py` Dynamically reads the dataset file by accepting the file path as a user-provided argument.
 
 `dpre.py` Performs example Data Cleaning, Data Transformation, Data Reduction, and Data Discretization steps then saves the resulting data frame as a new CSV file named res_dpre.csv. 
@@ -18,6 +20,10 @@ This is an exercise to practice the real-world data science operational flow.
 **Notes:**
 - Each one of these files automatically invokes the next one.
 - We created an Ubuntu docker image with Python3 packages.
+
+# Getting Started
+Run the docker container then go into the analysis directory and run the following command
+`python3 load.py <dataset_path>`
 
 ## Customer Personality Analysis Dataset Documentation
 **Kaggle link:** https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis
