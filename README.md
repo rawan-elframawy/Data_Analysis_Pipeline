@@ -21,6 +21,7 @@ This is an exercise to practice the real-world data science operational flow.
 
 # Getting Started
 Run the docker container then go into the analysis directory and run the following command
+
 `python3 load.py <dataset_path>`
 
 ## Customer Personality Analysis Dataset Documentation
