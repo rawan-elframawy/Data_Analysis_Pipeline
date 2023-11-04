@@ -60,6 +60,7 @@ def transform_data():
     # One-hot encoding
     df_encoded = pd.get_dummies(df, columns=["Education", "Marital_Status"])
     # need another task
+    # note that you can still deal with the non-one hot encoded dataframe using df which i used globally throughout the whole code
 
     return df_encoded
 
