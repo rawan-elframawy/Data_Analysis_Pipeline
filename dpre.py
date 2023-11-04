@@ -3,6 +3,7 @@ import pandas as pd  # Import Pandas for data manipulation and analysis
 import seaborn as sns # Creating visually appealing statistical plots.
 import matplotlib.pyplot as plt  # Import Matplotlib for data visualization
 import subprocess # To invoke the next file
+from sklearn.preprocessing import MinMaxScaler # Scaling data 
 import sys # Get dataset path argument from invoker file
 
 
@@ -60,6 +61,10 @@ def transform_data():
     # One-hot encoding
     df_encoded = pd.get_dummies(df, columns=["Education", "Marital_Status"])
     # need another task
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    # Apply Min-Max scaling to the selected columns
+    columns_to_scale = df_encoded.columns.tolist()
+    df_encoded[columns_to_scale] = scaler.fit_transform(df_encoded[columns_to_scale])
 
     return df_encoded
 
